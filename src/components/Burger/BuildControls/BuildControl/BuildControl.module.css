@@ -14,6 +14,7 @@
     border: 1px solid #AA6817;
     cursor: pointer;
     outline: none;
+    transition-delay: 0.3;
 }
 
 .BuildControl button:disabled {
@@ -21,6 +22,7 @@
     border: 1px solid #7E7365;
     color: #ccc;
     cursor: default;
+    transition-delay: 0.3;
 }
 
 .BuildControl button:hover:disabled {
@@ -38,11 +40,13 @@
 .BuildControl .Less {  
     background-color: #D39952;
     color: white;
+    transition-delay: 0.3;
 }
 
 .BuildControl .More {
     background-color: #8F5E1E;
     color: white;
+    transition-delay: 0.3;
 }
 
 .BuildControl .Less:hover, .BuildControl .Less:active {  
