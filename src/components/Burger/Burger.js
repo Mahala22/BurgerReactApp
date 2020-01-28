@@ -8,8 +8,9 @@ const burger = (props) => {
 
     let transformedIngredients = Object.keys(props.ingredients)
         .map(igkey => {
+            //console.log("value of the" + igkey + "is" +props.ingredients[igkey])      
             return [...Array(props.ingredients[igkey])].map((_, i) => {
-                // console.log(igkey, igkey+i)                            //to return single array element of ingredient
+                      //to return single array element of ingredient
                 return <BurgerIngredient key={igkey + i} type={igkey} />;  //of which kind (eg: meat0 meat)
             });
     })
