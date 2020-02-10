@@ -3,7 +3,7 @@ import classes from './Modal.module.css'
 import Aux from '../../../hoc/Auxiliary'
 import Backdrop from '../Backdrop/Backdrop'
 
-const modal  = (props) =>{
+const modal = (props) =>{
 
     return(
     <Aux>
@@ -19,4 +19,5 @@ const modal  = (props) =>{
     )
 }
 
-export default modal;
+
+export default React.memo(modal)
