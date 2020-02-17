@@ -2,28 +2,33 @@ import React, { useEffect } from 'react'
 import Aux from '../Auxiliary/Auxiliary'
 import Modal from '../../components/UI/Modal/Modal'
 
+
 const withErrorHandler = (WrappedComponent, axios) => {
 
-    let modal = null
-        let errorVal = null
-        
+    let errorVal = null
     return (props)=>{
-            useEffect(() => {
-                axios.interceptors.request.use(req => {
-                    errorVal = null
-                })
-                axios.interceptors.response.use(null, error => {
-                    errorVal = error
-                })
-                modal = <Modal show={errorVal} clicked ={!errorVal}>Something went wrong!...</Modal>
-            }, errorVal)
-            return(
-                <Aux>
-                    {modal}
-                    <WrappedComponent {...props}/>
-                </Aux>
+        
+        // axios.interceptors.request.use(request => {
+        //     errorVal = null
+        // })
+        useEffect(() => {
+            
+            axios.interceptors.response.use(null, error => {
+                errorVal = error
+                //console.log(error)
+               // return error
+            })
+            
+            //console.log('use effect running')
+        }, [props.axios.error])
+        return(
+            <Aux>
+                <Modal show={errorVal} modalcancel ={null}>Something went wrong!...</Modal>
+                <WrappedComponent {...props}/>
+            </Aux>
 
-            )
+        )
+        
     }
 
 
