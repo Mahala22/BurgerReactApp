@@ -36,6 +36,11 @@ class BurgerBuilder extends Component {
         purchasing: false,
         loading: false
     }
+
+    componentDidMount(){
+
+        axios.get('')
+    }
     purchaseHandler = () =>{
         this.setState({purchasing:true})
     }
@@ -54,7 +59,7 @@ class BurgerBuilder extends Component {
                 name: 'Aadarsh Mahala'
             }
         }
-        axios.post('/order', order)
+        axios.post('/order.json', order)
             .then(response => {
                 this.setState({loading:false, purchasing: false})
         }).catch(error => {
