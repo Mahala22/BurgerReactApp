@@ -38,6 +38,7 @@ class BurgerBuilder extends Component {
             .then(response => {
                 this.setState({ingredients : response.data})
         })
+        .catch(error => {})
     }
     purchaseHandler = () =>{
         this.setState({purchasing:true})
@@ -114,7 +115,6 @@ class BurgerBuilder extends Component {
             disabledInfo[key] = disabledInfo[key] <= 0
 
         }
-        
         let orderSummary = null
         let burger = <Spinner></Spinner>
         if(this.state.ingredients)
@@ -146,7 +146,6 @@ class BurgerBuilder extends Component {
                     {orderSummary}
                 </Modal>
                 {burger}
-                
             </Aux>
         )
     }
